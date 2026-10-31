@@ -2,9 +2,9 @@ import os
 import telebot
 from flask import Flask, request
 
-BOT_TOKEN = "9231537358:AAHZDvb76MY-MC710_67dnX3TfzOgF_1MdE"
-# আপনার চ্যানেলের চ্যাট আইডিটি নিচের লাইনে মাইনাস সহ বসিয়ে নেবেন
-CHANNEL_ID = "-1002345678912" 
+# আপনার আসল তথ্য দিয়ে কোডটি রেডি করা হলো
+BOT_TOKEN = "9231537358:AAHZDvb76MY-MC710_67dnX3Tfz"
+CHANNEL_ID = "-1004299201984"
 
 bot = telebot.TeleBot(BOT_TOKEN)
 app = Flask(__name__)
@@ -18,7 +18,8 @@ def webhook():
     try:
         data = request.data.decode('utf-8')
         if data:
-            bot.send_message(chat_id=CHANNEL_ID, text=f"📊 **NEW QUOTEX SIGNAL** 📊\n\n{data}")
+            # সরাসরি আপনার নতুন চ্যানেলে সিগনাল পাঠাবে
+            bot.send_message(chat_id=CHANNEL_ID, text=f"📊 **NEW SIGNAL**\n\n{data}")
             return "Signal Sent", 200
     except Exception as e:
         print(f"Error: {e}")
